@@ -31,14 +31,14 @@ public class TechJobs {
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
-            System.out.println(actionChoice);
+            //System.out.println(actionChoice);
 
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
-                System.out.println(columnChoice);
+                //System.out.println(columnChoice);
 
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
@@ -50,7 +50,7 @@ public class TechJobs {
 
                     // Print list of skills, employers, etc
                     for (String item : results) {
-                        System.out.println(item);
+                       System.out.println(item);
                     }
                 }
 
@@ -106,6 +106,7 @@ public class TechJobs {
                     return null;
                 }
             }
+
 
             // Validate user's input
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {

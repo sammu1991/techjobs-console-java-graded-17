@@ -13,7 +13,8 @@ import java.util.List;
 /**
  * Created by LaunchCode
  */
-public class JobData {
+public class JobData
+{
 
     private static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
@@ -41,7 +42,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
-
+        Collections.sort(values);
         return values;
     }
 
@@ -49,6 +50,8 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+
+        //return new ArrayList<>(allJobs);
 
         return allJobs;
     }
@@ -73,9 +76,9 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -105,7 +108,7 @@ public class JobData {
                 }
             }
         }
-        System.out.println("Jobs size:"+jobs.size());
+        //System.out.println("Jobs size:"+jobs.size());
         return jobs;
     }
 
