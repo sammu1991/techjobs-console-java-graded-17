@@ -107,10 +107,7 @@ public class JobData
                     jobList.add(job);
                 }
             }
-
-
         }
-        //System.out.println("Jobs size:"+jobs.size());
         return jobList;
     }
 
