@@ -31,12 +31,14 @@ public class TechJobs {
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
+            System.out.println(actionChoice);
 
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
+                System.out.println(columnChoice);
 
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
@@ -120,6 +122,20 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        //System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+        } else {
+            for (int i = 0; i < someJobs.size(); i++) {
+                System.out.println("\n*****");
+                for (Map.Entry<String, String> entry : someJobs.get(i).entrySet()) {
+                    String key = entry.getKey();
+                    Object value = entry.getValue();
+                    System.out.println(key + ": " + value);
+                }
+                System.out.println("*****");
+            }
+        }
     }
 }
+
