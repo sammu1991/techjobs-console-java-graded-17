@@ -97,20 +97,21 @@ public class JobData
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobList = new ArrayList<>();
+        String upperCaseSearchValue = value.toUpperCase();
 
         for (HashMap<String, String> job: allJobs) {
-            for (HashMap.Entry<String, String> entry : job.entrySet()) {
-                String searchTerm = entry.getValue().toUpperCase();
-
-                if (searchTerm.contains(value.toUpperCase()) && !jobs.contains(job)) {
-                    jobs.add(job);
+            for(String jobValue:job.values()){
+                String upperCaseJobValue = jobValue.toUpperCase();
+                if (upperCaseJobValue.contains(upperCaseSearchValue) && !jobList.contains(job)){
+                    jobList.add(job);
                 }
             }
 
+
         }
         //System.out.println("Jobs size:"+jobs.size());
-        return jobs;
+        return jobList;
     }
 
     /**
