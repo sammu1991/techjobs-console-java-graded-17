@@ -98,6 +98,7 @@ public class JobData
         loadData();
 
         ArrayList<HashMap<String, String>> jobList = new ArrayList<>();
+        //upperCase
         String upperCaseSearchValue = value.toUpperCase();
 
         for (HashMap<String, String> job: allJobs) {
